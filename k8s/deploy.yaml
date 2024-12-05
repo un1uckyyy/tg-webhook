@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tg-bot
+  labels:
+    app: tg-bot
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tg-bot
+  template:
+    metadata:
+      labels:
+        app: tg-bot
+    spec:
+      imagePullSecrets:
+        - name: ghcr-login-secret
+      containers:
+        - name: tg-bot
+          image: tg-bot:dev
+          ports:
+            - containerPort: 8080
+          env:
+            - name: CORS
+              value: "false"
+            - name: DEBUG
+              value: "true"

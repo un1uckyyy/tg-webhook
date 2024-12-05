@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-server
+spec:
+  rules:
+    - host: dev1.suvva.ru
+      http:
+        paths:
+          - path: /webhook
+            pathType: Prefix
+            backend:
+              service:
+                name: tg-bot
+                port:
+                  number: 8080
