@@ -1,8 +1,10 @@
 package main
 
 import (
-	tele "gopkg.in/telebot.v4"
+	"fmt"
 	"os"
+
+	tele "gopkg.in/telebot.v4"
 )
 
 func main() {
@@ -20,13 +22,13 @@ func main() {
 	}
 
 	bot, err := tele.NewBot(pref)
-
 	if err != nil {
 		panic(err)
 	}
 
 	bot.Handle(tele.OnText, func(c tele.Context) error {
-		return c.Send(c.Sender())
+		msg := fmt.Sprintf("echo from: %v", c.Sender())
+		return c.Send(msg)
 	})
 
 	bot.Start()

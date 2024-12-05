@@ -22,7 +22,7 @@ spec:
           ports:
             - containerPort: 8080
           env:
-            - name: CORS
-              value: "false"
-            - name: DEBUG
-              value: "true"
+            - name: TOKEN
+              value: "YOUR_TOKEN"
+            - name: WEBHOOK_URL
+              value: "YOUR_WEBHOOK_URL"
