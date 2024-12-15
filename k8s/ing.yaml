@@ -4,7 +4,7 @@ metadata:
   name: ingress-server
 spec:
   rules:
-    - host: dev1.suvva.ru
+    - host: host.ru
       http:
         paths:
           - path: /webhook
